@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plot Deal | Content Production Proposal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --gold: #C19A6B;
+            --dark: #0A0A0A;
+            --charcoal: #1A1A1B;
+        }
+        body {
+            background-color: var(--dark);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, .luxury-font {
+            font-family: 'Playfair Display', serif;
+        }
+        .gold-text { color: var(--gold); }
+        .gold-bg { background-color: var(--gold); }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(193, 154, 107, 0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .glass-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(193, 154, 107, 0.1);
+        }
+
+        .hero-video-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.25;
+            filter: grayscale(100%) contrast(110%);
+            z-index: -1;
+        }
+
+        .logo-ring {
+            position: relative;
+            width: 54px;
+            height: 54px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Animated Grain/Noise for Texture */
+        .noise {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            z-index: 9999;
+            background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+        }
+
+        @keyframes pulse-gold {
+            0% { box-shadow: 0 0 0 0 rgba(193, 154, 107, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(193, 154, 107, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(193, 154, 107, 0); }
+        }
+        .pulse { animation: pulse-gold 2s infinite; }
+    </style>
+</head>
+<body>
+    <div class="noise"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 px-8 py-6 flex justify-between items-center transition-all duration-500" id="navbar">
+        <div class="flex items-center gap-4">
+            <div class="logo-ring">
+                <img src="logo.png" alt="PD Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/50/C19A6B/000000?text=PD'">
+            </div>
+            <div class="flex flex-col">
+                <span class="text-lg tracking-[0.3em] font-light leading-none uppercase">Plot Deal</span>
+                <span class="text-[8px] gold-text uppercase tracking-[0.4em] mt-1 italic">Landbank | Investments</span>
+            </div>
+        </div>
+        <div class="hidden md:flex gap-10 text-[10px] uppercase tracking-[0.3em] font-medium text-gray-400">
+            <a href="#overview" class="hover:text-white transition">The Vision</a>
+            <a href="#strategies" class="hover:text-white transition">Strategic Path</a>
+            <a href="#pricing" class="hover:text-white transition">Investment</a>
+            <a href="#contact" class="hover:text-white transition">Contact</a>
+        </div>
+        <a href="https://wa.me/971503973649" class="gold-bg text-black px-8 py-3 rounded-full text-[10px] font-bold tracking-widest uppercase hover:scale-105 transition active:scale-95">
+            Book Discovery Call
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center px-6 overflow-hidden">
+        <!-- Background: High-end Dubai B-Roll -->
+        <video class="hero-video-bg" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=2000">
+            <source src="" type="video/mp4">
+        </video>
+        
+        <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black"></div>
+
+        <div class="text-center z-10">
+            <div class="inline-block px-4 py-1 border border-[#C19A6B]/30 rounded-full mb-6 reveal">
+                <span class="gold-text text-[10px] uppercase tracking-[0.5em]">Strategic Content Proposal for Plot Deal</span>
+            </div>
+            <h1 class="text-6xl md:text-9xl mb-8 reveal leading-tight" style="transition-delay: 200ms;">
+                Dominating <br><span class="gold-text italic font-light">The Market</span>
+            </h1>
+            <p class="max-w-2xl mx-auto text-gray-400 font-light text-lg leading-relaxed reveal" style="transition-delay: 400ms;">
+                Plot Deal has the foundation. We provide the <span class="text-white font-semibold">Identity</span>. We don't just create content; we engineer <span class="text-white font-semibold">Authority</span> to attract global investors.
+            </p>
+            <div class="mt-12 reveal flex flex-col md:flex-row gap-6 justify-center items-center" style="transition-delay: 600ms;">
+                <a href="#overview" class="bg-white text-black px-12 py-5 text-xs font-bold uppercase tracking-widest hover:bg-[#C19A6B] transition-colors duration-500">
+                    View Strategy
+                </a>
+                <span class="text-gray-600 hidden md:block">|</span>
+                <p class="text-[10px] uppercase tracking-widest text-gray-500">Curated by Amir4K</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expanded Overview -->
+    <section id="overview" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-24 items-start">
+            <div class="reveal">
+                <span class="gold-text uppercase tracking-widest text-xs mb-4 block">01 / The Vision</span>
+                <h2 class="text-5xl mb-10 leading-snug italic">Visual <span class="gold-text">Dominance</span></h2>
+                <p class="text-gray-400 mb-8 text-lg font-light leading-relaxed">
+                    In Dubai’s fast-moving market, **attention** is the most valuable asset. Plot Deal has verified plots and trusted brokers—what's missing is a distinct content identity that builds trust at scale.
+                </p>
+                <p class="text-gray-500 mb-10 font-light leading-relaxed">
+                    Our strategy is driven by **investor psychology**. We highlight "Opportunity" and "Trust," turning raw land into a premium investment narrative that commands authority.
+                </p>
+                
+                <div class="grid grid-cols-2 gap-10">
+                    <div>
+                        <h4 class="text-4xl gold-text font-bold mb-2">08</h4>
+                        <p class="text-xs text-gray-500 uppercase tracking-widest">Premium Reels / Mo</p>
+                    </div>
+                    <div>
+                        <h4 class="text-4xl gold-text font-bold mb-2">15</h4>
+                        <p class="text-xs text-gray-500 uppercase tracking-widest">Graphic Assets / Mo</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal glass-card p-12 rounded-[40px]" style="transition-delay: 300ms;">
+                <h3 class="text-2xl mb-6">Strategic Focus</h3>
+                <ul class="space-y-6">
+                    <li class="flex gap-4">
+                        <i data-lucide="brain" class="w-6 h-6 gold-text flex-shrink-0"></i>
+                        <div>
+                            <p class="font-semibold mb-1">Investor Psychology</p>
+                            <p class="text-sm text-gray-500">Content crafted to trigger "High-Value" perception and immediate trust.</p>
+                        </div>
+                    </li>
+                    <li class="flex gap-4">
+                        <i data-lucide="shield-check" class="w-6 h-6 gold-text flex-shrink-0"></i>
+                        <div>
+                            <p class="font-semibold mb-1">Brand Authority</p>
+                            <p class="text-sm text-gray-500">Positioning Plot Deal as the most trusted landbank expert in the UAE.</p>
+                        </div>
+                    </li>
+                    <li class="flex gap-4">
+                        <i data-lucide="trending-up" class="w-6 h-6 gold-text flex-shrink-0"></i>
+                        <div>
+                            <p class="font-semibold mb-1">Conversion Driven</p>
+                            <p class="text-sm text-gray-500">The goal is not just views—but attention, trust, and closing deals.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategy Selection & Comparison -->
+    <section id="strategies" class="py-32 bg-[#080808] relative">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-24 reveal">
+                <span class="gold-text uppercase tracking-widest text-xs mb-4 block">02 / Creative Direction</span>
+                <h2 class="text-6xl mb-6 italic font-light">The Strategic <span class="gold-text">Choice</span></h2>
+                <p class="text-gray-500 max-w-xl mx-auto">Compare our two core execution styles designed to attract different investor profiles.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
+                <!-- Option A -->
+                <div class="glass-card p-12 rounded-[40px] reveal group" style="transition-delay: 100ms;">
+                    <div class="mb-12 flex justify-between">
+                        <div class="w-16 h-16 rounded-full border border-[#C19A6B]/30 flex items-center justify-center gold-text group-hover:bg-[#C19A6B] group-hover:text-black transition-all">
+                            <i data-lucide="user-check" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs gold-text uppercase tracking-widest border-b border-[#C19A6B] h-fit">Option A</span>
+                    </div>
+                    <h3 class="text-3xl mb-6">Cinematic Real</h3>
+                    <p class="text-gray-400 font-light text-lg leading-relaxed mb-8">
+                        **Human Presence builds authenticity.** High-quality, scenario-based shoots (investment stories, lifestyle) featuring real agents and deal-making moments.
+                    </p>
+                    <div class="space-y-4 mb-10">
+                        <div class="flex items-center gap-3 text-sm text-gray-300">
+                            <i data-lucide="plus" class="w-4 h-4 gold-text"></i> Ideal for high-ticket trust building
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-gray-300">
+                            <i data-lucide="plus" class="w-4 h-4 gold-text"></i> Emotional connection & credibility
+                        </div>
+                    </div>
+                    <div class="pt-10 border-t border-white/5 flex justify-between items-center">
+                        <p class="text-3xl font-light italic">9k – 11k <span class="text-xs gold-text uppercase ml-1 tracking-widest font-bold">AED/mo</span></p>
+                    </div>
+                </div>
+
+                <!-- Option B -->
+                <div class="glass-card p-12 rounded-[40px] reveal group" style="transition-delay: 200ms;">
+                    <div class="mb-12 flex justify-between">
+                        <div class="w-16 h-16 rounded-full border border-[#C19A6B]/30 flex items-center justify-center gold-text group-hover:bg-[#C19A6B] group-hover:text-black transition-all">
+                            <i data-lucide="cpu" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs gold-text uppercase tracking-widest border-b border-[#C19A6B] h-fit">Option B</span>
+                    </div>
+                    <h3 class="text-3xl mb-6">AI Digital Face</h3>
+                    <p class="text-gray-400 font-light text-lg leading-relaxed mb-8">
+                        **Futuristic Brand Identity.** A consistent, recognizable AI-powered digital agent delivering insights and updates with a luxury, intelligent tone.
+                    </p>
+                    <div class="space-y-4 mb-10">
+                        <div class="flex items-center gap-3 text-sm text-gray-300">
+                            <i data-lucide="plus" class="w-4 h-4 gold-text"></i> Innovative, tech-forward positioning
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-gray-300">
+                            <i data-lucide="plus" class="w-4 h-4 gold-text"></i> Fast content scalability & consistency
+                        </div>
+                    </div>
+                    <div class="pt-10 border-t border-white/5 flex justify-between items-center">
+                        <p class="text-3xl font-light italic">10k – 13k <span class="text-xs gold-text uppercase ml-1 tracking-widest font-bold">AED/mo</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Premium 3D / CGI Add-on -->
+            <div class="reveal glass-card p-12 rounded-[40px] bg-gradient-to-br from-[#121212] to-black border-dashed border-[#C19A6B]/40" style="transition-delay: 300ms;">
+                <div class="flex flex-col md:flex-row gap-12 items-center">
+                    <div class="md:w-2/3">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 gold-bg text-black rounded-lg flex items-center justify-center">
+                                <i data-lucide="box" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-4xl italic">CGI <span class="gold-text">Premium Add-On</span></h3>
+                        </div>
+                        <p class="text-gray-400 text-lg font-light leading-relaxed mb-6">
+                            High-end 3D visual production for conceptual real estate visuals. We tell the story of the plot's potential through CGI, creating a world-class luxury brand perception.
+                        </p>
+                        <ul class="grid grid-cols-2 gap-4 text-sm text-gray-500">
+                            <li>• 3D Real Estate Visuals</li>
+                            <li>• Conceptual Storytelling</li>
+                            <li>• Premium Branding Effects</li>
+                            <li>• Architectural Depth</li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/3 text-center md:text-right border-l border-white/10 md:pl-12">
+                        <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-2">Price Per Video</p>
+                        <p class="text-4xl gold-text font-bold mb-4 italic">5k – 12k</p>
+                        <p class="text-[10px] text-white/40 uppercase tracking-widest">Depending on complexity</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hybrid Recommendation -->
+            <div id="pricing" class="mt-12 glass-card p-12 rounded-[50px] border-[#C19A6B] overflow-hidden relative reveal" style="transition-delay: 400ms;">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-[#C19A6B]/5 rounded-full -mr-32 -mt-32 blur-3xl"></div>
+                <div class="grid lg:grid-cols-3 gap-12 items-center">
+                    <div class="lg:col-span-2">
+                        <span class="bg-white text-black px-4 py-1 text-[10px] font-black uppercase rounded-full mb-6 inline-block">Hybrid Strategy (Recommended)</span>
+                        <h3 class="text-5xl mb-6 italic font-light">Full Market <span class="gold-text">Dominance</span></h3>
+                        <p class="text-gray-400 text-lg font-light leading-relaxed">
+                            Combine both approaches for maximum impact: Human videos for **Trust & Authority** + AI agents for **Branding & Scalability**. This is the strongest way to position Plot Deal.
+                        </p>
+                    </div>
+                    <div class="lg:border-l border-white/5 lg:pl-12 text-center lg:text-left">
+                        <p class="text-xs text-gray-500 uppercase tracking-widest mb-2 italic">Monthly Package</p>
+                        <p class="text-5xl gold-text font-bold mb-2 tracking-tighter">20k – 28k</p>
+                        <p class="text-[10px] uppercase tracking-[0.3em] text-white/40">AED | Full Strategy</p>
+                        <a href="https://wa.me/971503973649" class="mt-8 block w-full py-4 bg-[#C19A6B] text-black font-bold uppercase text-xs tracking-widest rounded-xl hover:shadow-[0_0_30px_rgba(193,154,107,0.4)] transition-all">Choose Hybrid Path</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / CTA -->
+    <footer id="contact" class="bg-black pt-40 pb-16 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-24 mb-32 reveal">
+                <div>
+                    <h2 class="text-7xl mb-12 luxury-font leading-tight italic">Ready for <br><span class="gold-text">Impact?</span></h2>
+                    <p class="text-xl text-gray-400 font-light mb-16 leading-relaxed max-w-lg">
+                        Plot Deal has the structure. This proposal is about turning it into a recognized, trusted, and visually dominant presence in Dubai’s market.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-8">
+                        <a href="https://wa.me/971503973649" class="group flex items-center gap-6">
+                            <div class="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center group-hover:border-[#C19A6B] transition-all">
+                                <i data-lucide="phone" class="w-6 h-6 gold-text"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-gray-500 uppercase tracking-[0.3em]">Direct WhatsApp</p>
+                                <p class="text-xl font-light">+971 50 397 3649</p>
+                            </div>
+                        </a>
+                        <a href="https://www.instagram.com/iam4k.official" class="group flex items-center gap-6">
+                            <div class="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center group-hover:border-[#C19A6B] transition-all">
+                                <i data-lucide="instagram" class="w-6 h-6 gold-text"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-gray-500 uppercase tracking-[0.3em]">Instagram</p>
+                                <p class="text-xl font-light">@iam4k.official</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col justify-between items-end text-right">
+                    <div class="mb-20">
+                         <div class="logo-ring w-24 h-24 mb-8 ml-auto">
+                             <img src="logo.png" alt="Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/100/C19A6B/000000?text=PD'">
+                         </div>
+                         <p class="text-gray-500 text-xs uppercase tracking-[0.5em] mb-4">Strategic Proposal By</p>
+                         <h3 class="text-5xl gold-text italic luxury-font">Amir4K</h3>
+                         <p class="text-gray-600 mt-4 text-sm font-light uppercase tracking-widest">Creative Direction & Execution</p>
+                    </div>
+                    <div class="max-w-xs">
+                        <p class="text-gray-600 text-sm leading-relaxed italic">"Plot Deal has the strongest foundation in land investment. This strategy turns that foundation into global authority."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex gap-10 text-[10px] uppercase tracking-widest text-gray-700 font-bold">
+                    <span>Dubai, UAE</span>
+                    <span>Verified Plots Content</span>
+                    <span>Investor Trust Strategy</span>
+                </div>
+                <p class="text-[10px] text-gray-800 uppercase tracking-[0.4em]">© 2024 AMIR4K PRODUCTION. ALL RIGHTS RESERVED.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Reveal animations on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Navbar effect on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-black/80', 'backdrop-blur-xl', 'py-4');
+                nav.classList.remove('py-6');
+            } else {
+                nav.classList.remove('bg-black/80', 'backdrop-blur-xl', 'py-4');
+                nav.classList.add('py-6');
+            }
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
